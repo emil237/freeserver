@@ -1,6 +1,6 @@
 #!/bin/sh
 # ###########################################
-# SCRIPT : DOWNLOAD AND INSTALL YouTube
+# SCRIPT : DOWNLOAD AND INSTALL freeserver
 # ###########################################
 #
 # Command: wget https://raw.githubusercontent.com/emil237/freeserver/main/installer.sh -qO - | /bin/sh
