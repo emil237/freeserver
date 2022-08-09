@@ -80,11 +80,11 @@ fi
 ########################
 echo "Insallling freeserver plugin Please Wait ......"
 if [ $OSTYPE = "Opensource" ]; then
-    wget $MY_URL/${PACKAGE}_{VERSION}"_all.ipk -qP $TMPDIR
-    $OPKGINSTAL $TMPDIR/${PACKAGE}_{VERSION}"_all.ipk
+    wget $MY_URL/${PACKAGE}_{VERSION}_all.ipk -qP $TMPDIR
+    $OPKGINSTAL $TMPDIR/${PACKAGE}_{VERSION}_all.ipk
 else
-    wget $MY_URL/${PACKAGE}_{VERSION}"_all.deb -qP $TMPDIR
-    $DPKINSTALL $TMPDIR/${PACKAGE}_{VERSION}"_all.deb
+    wget $MY_URL/${PACKAGE}_{VERSION}_all.deb -qP $TMPDIR
+    $DPKINSTALL $TMPDIR/${PACKAGE}_{VERSION}_all.deb
     $OPKGINSTAL -f -y
 fi
 
@@ -94,8 +94,9 @@ rm -rf $TMPDIR/"${PACKAGE:?}"*
 echo ""
 echo "***********************************************************************"
 echo "**                                                                    *"
-echo "**                       freeserver    : $VERSION                            *"
-echo "**                       Uploaded by: Emil_Nabil                     *"                                                            
+echo "**                       freeserver    : $VERSION     *"
+echo "**                       Uploaded by: Emil_Nabil                     *"
+sleep 4;                                                            
 echo "***********************************************************************"
 echo ""
 
