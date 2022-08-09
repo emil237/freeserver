@@ -8,6 +8,7 @@
 # ###########################################
 
 ###########################################
+VERSION="8.0.4"
 TMPDIR='/tmp'
 PACKAGE='enigma2-plugin-extensions-freeserver'
 MY_URL='https://raw.githubusercontent.com/emil237/freeserver/main'
@@ -32,9 +33,7 @@ elif [ -f /etc/apt/apt.conf ]; then
 fi
 
 #########################
-VERSION=$(wget $MY_URL/version -qO- | grep 'version' | cut -d "=" -f2-)
-GIT=$(wget $MY_URL/version -qO- | grep 'commit' | cut -d "=" -f2-)
-CHECK_VERSION=$($OPKGLIST $PACKAGE | cut -d'+' -f2 | awk '{ print $1 }')
+
 rm -rf $TMPDIR/"${PACKAGE:?}"* >/dev/null 2>&1
 
 #########################
