@@ -1,6 +1,6 @@
 #!/bin/sh
 # ###########################################
-# SCRIPT : DOWNLOAD AND INSTALL freeserver
+# SCRIPT : DOWNLOAD AND INSTALL FreeServer
 # ###########################################
 #
 # Command: wget https://raw.githubusercontent.com/emil237/freeserver/main/installer.sh -qO - | /bin/sh
@@ -8,10 +8,9 @@
 # ###########################################
 
 ###########################################
-VERSION="8.0.4"
 TMPDIR='/tmp'
-PACKAGE='enigma2-plugin-extensions-freeserver'
-MY_URL='https://raw.githubusercontent.com/emil237/freeserver/main'
+PACKAGE="enigma2-plugin-extensions-freeserver"
+MY_URL="https://raw.githubusercontent.com/emil237/freeserver/main"
 PYTHON_VERSION=$(python -c"import sys; print(sys.version_info.major)")
 
 #########################
@@ -33,7 +32,9 @@ elif [ -f /etc/apt/apt.conf ]; then
 fi
 
 #########################
-
+VERSION=$(wget $MY_URL/version -qO- | grep 'version' | cut -d "=" -f2-)
+GIT=$(wget $MY_URL/version -qO- | grep 'commit' | cut -d "=" -f2-)
+CHECK_VERSION=$($OPKGLIST $PACKAGE | cut -d'+' -f2 | awk '{ print $1 }')
 rm -rf $TMPDIR/"${PACKAGE:?}"* >/dev/null 2>&1
 
 #########################
@@ -78,25 +79,24 @@ else
 fi
 
 ########################
-echo "Insallling freeserver plugin Please Wait ......"
+echo "Insallling FreeServer plugin Please Wait ......"
 if [ $OSTYPE = "Opensource" ]; then
-    wget $MY_URL/${PACKAGE}_{VERSION}_all.ipk -qP $TMPDIR
-    $OPKGINSTAL $TMPDIR/${PACKAGE}_{VERSION}_all.ipk
+    wget $MY_URL/${PACKAGE}_${VERSION}_all.ipk -qP $TMPDIR
+    $OPKGINSTAL $TMPDIR/${PACKAGE}_${VERSION}_all.ipk
 else
-    wget $MY_URL/${PACKAGE}_{VERSION}_all.deb -qP $TMPDIR
-    $DPKINSTALL $TMPDIR/${PACKAGE}_{VERSION}_all.deb
+    wget $MY_URL/${PACKAGE}_${VERSION}_all.deb -qP $TMPDIR
+    $DPKINSTALL $TMPDIR/${PACKAGE}_${VERSION}_all.deb
     $OPKGINSTAL -f -y
 fi
 
 ########################
 rm -rf $TMPDIR/"${PACKAGE:?}"*
-
 echo ""
 echo "***********************************************************************"
 echo "**                                                                    *"
-echo "**                       freeserver    : $VERSION     *"
+echo "**                    FreeServer    : $VERSION                            *"
 echo "**                       Uploaded by: Emil_Nabil                     *"
-sleep 4;                                                            
+echo "**                                                                    *"
 echo "***********************************************************************"
 echo ""
 
