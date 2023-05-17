@@ -10,8 +10,8 @@
 ###########################################
 TEMPATH=/tmp
 OPKGINSTALL="opkg install --force-overwrite"
-MY_IPK="enigma2-plugin-extensions-freeserver_8.2.0_all.ipk"
-MY_DEB="enigma2-plugin-extensions-freeserver_8.2.0_all.deb"
+MY_IPK="enigma2-plugin-extensions-freeserver_8.2.9_all.ipk"
+MY_DEB="enigma2-plugin-extensions-freeserver_8.2.9_all.deb"
 MY_URL="https://raw.githubusercontent.com/emil237/freeserver/main"
 if [ -f /etc/apt/apt.conf ] ; then
     STATUS='/var/lib/dpkg/status'
